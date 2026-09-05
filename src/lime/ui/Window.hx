@@ -522,10 +522,10 @@ class Window
 		return __backend.setDisplayMode(value);
 	}
 
-	@:noCompletion private function get_nativeHandle():Dynamic
+	/*@:noCompletion private function get_nativeHandle():Dynamic
 	{
 		return __backend.getNativeHandle();
-	}
+	}*/
 
 	@:noCompletion private inline function get_borderless():Bool
 	{
@@ -711,6 +711,14 @@ class Window
 	{
 		__visible = __backend.setVisible(value);
 		return __visible;
+	}
+
+	@:noCompletion private function set_vsync(value:Bool):Bool {
+    return value; // does nothing, but won’t crash
+    }
+
+    @:noCompletion private inline function get_vsync():Bool {
+    return false; // always reports off
 	}
 
 	@:noCompletion private inline function get_width():Int
